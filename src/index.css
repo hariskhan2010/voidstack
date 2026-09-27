@@ -1,0 +1,52 @@
+@import "tailwindcss" source("./");
+@import "./lightswind.css";
+@plugin "lightswind/plugin";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* shadcn-style tokens (HSL triplets live in lightswind.css) */
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-primarylw: var(--primarylw);
+  --color-primarylw-2: var(--primarylw-2);
+}
+
+@theme {
+  --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, "SFMono-Regular", monospace;
+}
+
+html { scroll-behavior: smooth; color-scheme: dark; }
+body { @apply bg-[#07080a] font-sans text-zinc-200 antialiased; }
+::selection { background: rgb(52 211 153 / 0.3); color: #fff; }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes flow { from { transform: translateX(-100%); } to { transform: translateX(400%); } }
+@keyframes growIn { from { transform: scaleX(0); } }
+
+/* Pause the stack orbit while the visitor is inspecting it */
+.orbit:hover .orbit-spin,
+[data-paused] .orbit-spin { animation-play-state: paused !important; }
+
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
