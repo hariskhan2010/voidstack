@@ -51,7 +51,7 @@ export default function Stats() {
                     {w.map(day => (
                       <span
                         key={day.date}
-                        title={`${day.count} commit${day.count === 1 ? "" : "s"} · ${day.date}`}
+                        title={`${day.count ? `${day.count} commit${day.count === 1 ? "" : "s"}` : "No commits"} · ${day.date}`}
                         className={`h-[11px] w-[11px] rounded-[2px] ${LEVELS[level(day.count)]}`}
                       />
                     ))}
