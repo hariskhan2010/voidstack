@@ -26,6 +26,8 @@
   --color-ring: hsl(var(--ring));
   --color-primarylw: var(--primarylw);
   --color-primarylw-2: var(--primarylw-2);
+  /* secondary text on the near-black ground: ~5.7:1, passes WCAG AA for small text */
+  --color-meta: #8b8b94;
 }
 
 @theme {
@@ -35,6 +37,9 @@
 
 html { scroll-behavior: smooth; color-scheme: dark; }
 body { @apply bg-[#07080a] font-sans text-zinc-200 antialiased; }
+/* Visible keyboard focus everywhere, in the accent color */
+:where(a, button, input, [tabindex]):focus-visible { outline: 2px solid #34d399; outline-offset: 3px; border-radius: 6px; }
+
 ::selection { background: rgb(52 211 153 / 0.3); color: #fff; }
 
 @keyframes spin { to { transform: rotate(360deg); } }

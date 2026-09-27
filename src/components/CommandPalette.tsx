@@ -9,7 +9,7 @@ import { goTo, runInTerminal } from "@/lib/bus";
 
 type Entry = { id: string; label: string; hint?: ReactNode; icon: ReactNode; keywords: string[]; run: () => void; external?: boolean };
 
-const ic = "h-4 w-4 text-zinc-500";
+const ic = "h-4 w-4 text-meta";
 const GithubIcon = () => (
   <svg viewBox="0 0 24 24" className="h-4 w-4 fill-zinc-500" aria-hidden><path d={siGithub.path} /></svg>
 );
@@ -21,7 +21,9 @@ const GROUPS: { heading: string; items: Entry[] }[] = [
     heading: "Go to",
     items: [
       { id: "top", label: "Top", icon: <Hash className={ic} />, keywords: ["home", "hero"], run: () => goTo("top") },
-      { id: "work", label: "Work", icon: <LayoutGrid className={ic} />, keywords: ["codegraph", "projects"], run: () => goTo("work") },
+      { id: "work", label: "Work: codegraph", icon: <LayoutGrid className={ic} />, keywords: ["codegraph", "flagship"], run: () => goTo("work") },
+      { id: "evidence", label: "Evidence", icon: <Hash className={ic} />, keywords: ["stats", "tests", "commits", "numbers"], run: () => goTo("evidence") },
+      { id: "projects", label: "Projects", icon: <LayoutGrid className={ic} />, keywords: ["systems", "hydra", "closedloop", "overpower"], run: () => goTo("projects") },
       { id: "about", label: "About", icon: <Hash className={ic} />, keywords: ["philosophy", "principles", "haris"], run: () => goTo("about") },
       { id: "stack", label: "Stack", icon: <Orbit className={ic} />, keywords: ["skills", "tech", "orbit"], run: () => goTo("stack") },
       { id: "terminal", label: "Terminal", icon: <TerminalSquare className={ic} />, keywords: ["shell", "cli"], run: () => goTo("terminal") },
@@ -40,7 +42,7 @@ const GROUPS: { heading: string; items: Entry[] }[] = [
   {
     heading: "Projects",
     items: PROJECTS.map(p => ({
-      id: p.id, label: p.name, hint: <span className="ml-2 truncate text-xs text-zinc-500">{p.tagline}</span>,
+      id: p.id, label: p.name, hint: <span className="ml-2 truncate text-xs text-meta">{p.tagline}</span>,
       icon: <Boxes className={ic} />, keywords: [p.id, ...p.stack], run: () => runInTerminal(`open ${p.id}`),
     })),
   },
@@ -86,7 +88,7 @@ export default function CommandPalette() {
                   <span className="mr-1">{i.icon}</span>
                   {i.label}
                   {i.hint}
-                  {i.external && <ArrowUpRight className="ml-auto h-3.5 w-3.5 text-zinc-600" />}
+                  {i.external && <ArrowUpRight className="ml-auto h-3.5 w-3.5 text-meta" />}
                 </CommandItem>
               ))}
             </CommandGroup>

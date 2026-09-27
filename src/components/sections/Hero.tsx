@@ -1,9 +1,9 @@
 import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
-import { ArrowDown, TerminalSquare } from "lucide-react";
+import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { lazy, Suspense, useEffect, useRef, useState } from "react";
 // Three.js is the heaviest dependency; load it after the hero text has painted.
 const VoidGraph = lazy(() => import("@/components/VoidGraph"));
-import { runInTerminal } from "@/lib/bus";
+import { PROFILE } from "@/data/profile";
 
 export default function Hero() {
   const reduce = useReducedMotion();
@@ -41,21 +41,23 @@ export default function Hero() {
             I build the <span className="text-primarylw-2">infrastructure</span> AI agents run on.
           </motion.h1>
           <motion.p {...rise(0.16)} className="mt-4 max-w-[46ch] text-base leading-relaxed text-zinc-400 md:mt-6 md:text-lg">
-            Haris, full-stack & AI engineer. Code graphs, multi-agent orchestrators, and systems that turn bug reports into pull requests.
+            I'm Haris. I build developer infrastructure for AI coding agents: code intelligence, orchestration, fix-to-PR automation, and the products around them.
           </motion.p>
           <motion.div {...rise(0.24)} className="mt-7 flex flex-wrap items-center gap-3 md:mt-9">
             <a
               href="#work"
               className="inline-flex items-center gap-2 rounded-lg bg-primarylw-2 px-5 py-3 text-sm font-semibold text-zinc-950 transition hover:bg-emerald-300 active:scale-[0.98]"
             >
-              View work <ArrowDown className="h-4 w-4" />
+              Explore my work <ArrowDown className="h-4 w-4" aria-hidden />
             </a>
-            <button
-              onClick={() => runInTerminal("help")}
+            <a
+              href={PROFILE.github}
+              target="_blank"
+              rel="noreferrer"
               className="inline-flex items-center gap-2 rounded-lg border border-white/12 bg-white/[0.03] px-5 py-3 text-sm font-medium text-zinc-200 transition hover:border-primarylw-2/50 hover:text-white active:scale-[0.98]"
             >
-              <TerminalSquare className="h-4 w-4 text-primarylw-2" /> Open terminal
-            </button>
+              GitHub <ArrowUpRight className="h-4 w-4 text-primarylw-2" aria-hidden />
+            </a>
           </motion.div>
         </motion.div>
 
@@ -65,7 +67,7 @@ export default function Hero() {
               <VoidGraph className="absolute inset-0" />
             </Suspense>
           )}
-          <div className="pointer-events-none absolute bottom-4 right-2 hidden font-mono text-[11px] leading-5 text-zinc-600 lg:block">
+          <div className="pointer-events-none absolute bottom-4 right-2 hidden font-mono text-[11px] leading-5 text-meta lg:block">
             <div>140 nodes · 5 communities</div>
             <div>live WebGL render</div>
           </div>

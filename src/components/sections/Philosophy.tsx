@@ -35,7 +35,7 @@ export default function Philosophy() {
             I'm Haris. I build the plumbing for coding agents: tools that let them read a codebase precisely,
             work in parallel without stepping on each other, and ship changes a human can trust.
           </p>
-          <p className="mt-4 max-w-[42ch] text-zinc-500">Four rules I keep coming back to, each one learned the hard way in a real project.</p>
+          <p className="mt-4 max-w-[42ch] text-meta">Four rules I keep coming back to, each one learned the hard way in a real project.</p>
         </div>
 
         <ol className="divide-y divide-white/[0.07] border-y border-white/[0.07]">
@@ -50,7 +50,7 @@ export default function Philosophy() {
             >
               <h3 className="text-2xl font-medium tracking-tight text-zinc-100 transition-colors group-hover:text-primarylw-2 md:text-3xl">{p.title}</h3>
               <p className="max-w-[56ch] leading-relaxed text-zinc-400">{p.body}</p>
-              <span className="font-mono text-xs text-zinc-600">from {p.source}</span>
+              <span className="font-mono text-xs text-meta">from {p.source}</span>
             </motion.li>
           ))}
         </ol>

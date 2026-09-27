@@ -6,7 +6,7 @@ import { goTo } from "@/lib/bus";
 type Line = { kind: "in" | "out"; body: ReactNode };
 
 const G = ({ children }: { children: ReactNode }) => <span className="text-primarylw-2">{children}</span>;
-const D = ({ children }: { children: ReactNode }) => <span className="text-zinc-500">{children}</span>;
+const D = ({ children }: { children: ReactNode }) => <span className="text-meta">{children}</span>;
 
 const COMMANDS = ["help", "whoami", "projects", "open", "stack", "stats", "contact", "email", "github", "ls", "clear", "sudo"] as const;
 const HIDDEN = ["snip", "op-viewer", "sudo hire-me", "rm -rf /", "exit", "codegraph"];
@@ -33,7 +33,7 @@ function run(raw: string): ReactNode | "clear" {
           ].map(([c, d]) => (
             <div key={c} className="contents"><G>{c}</G><D>{d}</D></div>
           ))}
-          <div className="col-span-2 mt-2 text-zinc-600">psst: there are a few commands not on this list. tab completes, ↑ recalls.</div>
+          <div className="col-span-2 mt-2 text-meta">psst: there are a few commands not on this list. tab completes, ↑ recalls.</div>
         </div>
       );
     case "whoami":
@@ -53,7 +53,7 @@ function run(raw: string): ReactNode | "clear" {
               <G>{p.id}</G><D>{p.status}</D><span className="text-zinc-300">{p.tagline}</span>
             </div>
           ))}
-          <div className="col-span-3 mt-1 text-zinc-600">try: open hydra</div>
+          <div className="col-span-3 mt-1 text-meta">try: open hydra</div>
         </div>
       );
     case "open": {
@@ -68,7 +68,7 @@ function run(raw: string): ReactNode | "clear" {
         <div className="space-y-1">
           <div><G>{p.name}</G> <D>· {p.status}</D></div>
           <div className="max-w-[70ch] text-zinc-300">{p.summary}</div>
-          <div className="text-zinc-500">stack: {p.stack.join(", ")}</div>
+          <div className="text-meta">stack: {p.stack.join(", ")}</div>
           {p.href && <a className="text-primarylw-2 underline underline-offset-4" href={p.href} target="_blank" rel="noreferrer">{p.href}</a>}
         </div>
       );
@@ -180,7 +180,7 @@ export default function Terminal() {
           <span className="h-3 w-3 rounded-full bg-zinc-700" />
           <span className="h-3 w-3 rounded-full bg-zinc-700" />
           <span className="h-3 w-3 rounded-full bg-zinc-700" />
-          <span className="ml-3 font-mono text-xs text-zinc-500">haris@voidstack: ~</span>
+          <span className="ml-3 font-mono text-xs text-meta">haris@voidstack: ~</span>
         </div>
         <div ref={screen} className="h-[380px] overflow-y-auto p-5 font-mono text-[13px] leading-6 text-zinc-200 md:h-[420px]" role="log" aria-live="polite">
           {lines.map((l, i) => (

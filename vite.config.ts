@@ -9,7 +9,7 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"),
+      "@": path.resolve(import.meta.dirname, "./src"),
       // `motion/react` is framer-motion under a new name. Lightswind pins framer-motion 12 while
       // `motion` ships 13, which bundled two copies of the engine (+150 kB). Point both at one.
       "motion/react": "framer-motion",

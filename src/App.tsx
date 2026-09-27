@@ -4,7 +4,6 @@ import Stats from "@/components/sections/Stats";
 import Featured from "@/components/sections/Featured";
 import Projects from "@/components/sections/Projects";
 import WorkDeck from "@/components/sections/WorkDeck";
-import Marquee from "@/components/sections/Marquee";
 import Philosophy from "@/components/sections/Philosophy";
 import StackOrbit from "@/components/sections/StackOrbit";
 import Terminal from "@/components/sections/Terminal";
@@ -20,10 +19,9 @@ export default function App() {
       <Nav />
       <main>
         <Hero />
-        <Stats />
         <WorkDeck />
         <Featured />
-        <Marquee />
+        <Stats />
         <Projects />
         <Philosophy />
         <StackOrbit />

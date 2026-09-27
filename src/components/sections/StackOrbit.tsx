@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 // Named imports only: `import * as` pulls all ~3,000 brand icons (≈6 MB) into the bundle.
 import {
-  siClaude, siFlutter, siGit, siGooglegemini, siNextdotjs, siNodedotjs, siPostgresql, siPython,
+  siClaude, siFastapi, siGit, siGooglegemini, siNextdotjs, siNodedotjs, siPostgresql, siPython,
   siReact, siSqlite, siTailwindcss, siThreedotjs, siTurborepo, siTypescript,
 } from "simple-icons";
 const icons = {
-  siClaude, siFlutter, siGit, siGooglegemini, siNextdotjs, siNodedotjs, siPostgresql, siPython,
+  siClaude, siFastapi, siGit, siGooglegemini, siNextdotjs, siNodedotjs, siPostgresql, siPython,
   siReact, siSqlite, siTailwindcss, siThreedotjs, siTurborepo, siTypescript,
 };
 import { STACK } from "@/data/profile";
@@ -108,7 +108,7 @@ export default function StackOrbit() {
             <p className="text-sm text-zinc-400">{active.used}</p>
           </>
         ) : (
-          <p className="font-mono text-xs text-zinc-600">{STACK.length} tools · 3 orbits</p>
+          <p className="font-mono text-xs text-meta">{STACK.length} tools · 3 orbits</p>
         )}
       </div>
     </section>

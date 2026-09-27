@@ -35,10 +35,15 @@ export default function Contact() {
           </a>
         </div>
       </div>
-      <footer className="border-t border-white/[0.06]">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-5 py-6 font-mono text-xs text-zinc-600 md:px-8">
-          <span>© 2026 voidstack · designed and built with Prism on OpenClaw</span>
-          <button onClick={openPalette} className="hover:text-zinc-300">press ⌘K / Ctrl K to jump anywhere</button>
+      <footer className="border-t border-white/[0.06]" aria-label="Footer">
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-5 py-6 font-mono text-xs text-meta md:px-8">
+          <span>© 2026 Haris · voidstack</span>
+          <ul className="flex flex-wrap items-center gap-x-5 gap-y-2">
+            <li><a href={PROFILE.github} target="_blank" rel="noreferrer" className="hover:text-zinc-300">GitHub</a></li>
+            <li><a href={`mailto:${PROFILE.email}`} className="hover:text-zinc-300">{PROFILE.email}</a></li>
+            <li><a href="https://github.com/hariskhan2010/voidstack" target="_blank" rel="noreferrer" className="hover:text-zinc-300">Source of this site</a></li>
+            <li><button onClick={openPalette} className="hover:text-zinc-300">⌘K / Ctrl K</button></li>
+          </ul>
         </div>
       </footer>
     </section>

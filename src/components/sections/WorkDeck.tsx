@@ -14,7 +14,7 @@ function Face({ name, kind, children, tone = "base" }: { name: string; kind: str
       <div className="flex h-full flex-col p-[6cqw]">
       <div className="flex items-baseline justify-between gap-2">
         <span className="truncate text-[max(12px,7cqw)] font-semibold tracking-tight text-zinc-50">{name}</span>
-        <span className="shrink-0 font-mono text-[max(9px,3.6cqw)] uppercase tracking-wider text-zinc-500">{kind}</span>
+        <span className="shrink-0 font-mono text-[max(9px,3.6cqw)] uppercase tracking-wider text-meta">{kind}</span>
       </div>
       <div className="relative mt-[5cqw] min-h-0 flex-1">{children}</div>
       </div>
@@ -45,7 +45,7 @@ const Lanes = () => (
 );
 
 const Loop = () => (
-  <ol className="flex h-full flex-col justify-between font-mono text-[max(9px,4.4cqw)] text-zinc-500" aria-hidden>
+  <ol className="flex h-full flex-col justify-between font-mono text-[max(9px,4.4cqw)] text-meta" aria-hidden>
     {["observe", "research", "plan", "verify", "learn"].map((s, i, a) => (
       <li key={s} className={i === a.length - 1 ? "text-emerald-400" : ""}>{String(i + 1).padStart(2, "0")} {s}</li>
     ))}
@@ -87,7 +87,7 @@ const Shell = () => (
 
 const Brief = () => (
   <div className="flex h-full flex-col justify-between font-mono text-[max(9px,4.6cqw)]" aria-hidden>
-    <span className="text-zinc-500">brief →</span>
+    <span className="text-meta">brief →</span>
     <span className="text-zinc-300">scaffold · build · screenshot</span>
     <span className="text-emerald-400">→ site</span>
   </div>
@@ -110,7 +110,7 @@ export default function WorkDeck() {
     <StackSpread
       id="deck"
       cards={CARDS}
-      scrollLength={300}
+      scrollLength={240}
       bgColor="#07080a"
       textColor="#fafafa"
       cardRadius={14}
